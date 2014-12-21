@@ -68,7 +68,7 @@ getUsers <- function(users, token, private_info=FALSE)
 		if (private_info==FALSE){
 		query <- paste('https://graph.facebook.com/?ids=', 
 			paste(names(actual.users), collapse=","),
-			"&fields=id,name,first_name,last_name,gender,locale,relationship_status", sep="")
+			"&fields=id,name,first_name,last_name,gender,locale", sep="")
 		}		
 		## making query
 		content <- callAPI(query, token)
