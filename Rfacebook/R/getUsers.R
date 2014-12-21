@@ -63,7 +63,7 @@ getUsers <- function(users, token, private_info=FALSE)
 		query <- paste('https://graph.facebook.com/?ids=', 
 			paste(names(actual.users), collapse=","), 
 			"&fields=id,name,first_name,last_name,gender,locale,birthday,",
-			"location,hometown,relationship_status", sep="")
+			"location,hometown,relationship_status,email", sep="")
 		}
 		if (private_info==FALSE){
 		query <- paste('https://graph.facebook.com/?ids=', 
@@ -114,7 +114,7 @@ getUsers <- function(users, token, private_info=FALSE)
 				if (private_info==TRUE){
 				query <- paste('https://graph.facebook.com/?ids=', 
 					paste(names(actual.users), collapse=","), 
-					"&fields=id,name,first_name,last_name,gender,locale,birthday", sep="")
+					"&fields=id,name,first_name,last_name,gender,locale,birthday,email", sep="")
 				}
 				if (private_info==FALSE){
 				query <- paste('https://graph.facebook.com/?ids=', 
