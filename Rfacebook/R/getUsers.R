@@ -62,14 +62,13 @@ getUsers <- function(users, token, private_info=FALSE)
 		if (private_info==TRUE){
 		query <- paste('https://graph.facebook.com/?ids=', 
 			paste(names(actual.users), collapse=","), 
-			"&fields=id,name,username,first_name,last_name,gender,locale,birthday,",
-			"location,hometown,relationship_status,picture.type(large)", sep="")
+			"&fields=id,name,first_name,last_name,gender,locale,birthday,",
+			"location,hometown,relationship_status", sep="")
 		}
 		if (private_info==FALSE){
 		query <- paste('https://graph.facebook.com/?ids=', 
 			paste(names(actual.users), collapse=","),
-			"&fields=id,name,username,first_name,last_name,gender,locale,",
-			"picture.type(large)", sep="")
+			"&fields=id,name,first_name,last_name,gender,locale", sep="")
 		}		
 		## making query
 		content <- callAPI(query, token)
@@ -82,7 +81,7 @@ getUsers <- function(users, token, private_info=FALSE)
 		## getting data for pages
 		query <- paste('https://graph.facebook.com/?ids=', 
 			paste(names(pages), collapse=","), 
-			"&fields=id,name,username,category,likes,picture.type(large)", sep="")
+			"&fields=id,name,category,likes", sep="")
 		## making query
 		content <- callAPI(query, token)
 		df.pages <- userDataToDF(content, private_info=private_info)	
@@ -115,14 +114,12 @@ getUsers <- function(users, token, private_info=FALSE)
 				if (private_info==TRUE){
 				query <- paste('https://graph.facebook.com/?ids=', 
 					paste(names(actual.users), collapse=","), 
-					"&fields=id,name,username,first_name,last_name,gender,locale,birthday,",
-					"location,hometown,relationship_status,picture.type(large)", sep="")
+					"&fields=id,name,first_name,last_name,gender,locale,birthday", sep="")
 				}
 				if (private_info==FALSE){
 				query <- paste('https://graph.facebook.com/?ids=', 
 					paste(names(actual.users), collapse=","),
-					"&fields=id,name,username,first_name,last_name,gender,locale,",
-					"picture.type(large)", sep="")
+					"&fields=id,name,first_name,last_name,gender,locale", sep="")
 				}		
 				## making query
 				content <- callAPI(query, token)
@@ -135,7 +132,7 @@ getUsers <- function(users, token, private_info=FALSE)
 				## getting data for pages
 				query <- paste('https://graph.facebook.com/?ids=', 
 					paste(names(pages), collapse=","), 
-					"&fields=id,name,username,category,likes,picture.type(large)", sep="")
+					"&fields=id,name,category,likes", sep="")
 				## making query
 				content <- callAPI(query, token)
 				df.pages <- userDataToDF(content, private_info=private_info)	
